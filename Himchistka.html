@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полная химчистка автомобилей</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background-color: white;
+        }
+        header {
+            background-color: #e63946;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #e63946;
+            text-decoration: none;
+            padding: 10px;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .banner {
+            background-color: #fff;
+            color: #000;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .section {
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #000;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .section h2 {
+            color: #000;
+        }
+        .services, .contact {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .reviews {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        footer {
+            background-color: #e63946;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .button {
+            background-color: #e63946;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+        .comment-input {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .comment-input input, .comment-input textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comment-input button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e63946;
+            color: white;
+            cursor: pointer;
+        }
+        .comment-input button:hover {
+            background-color: #333;
+        }
+        .comment {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .comment p {
+            margin: 5px 0;
+        }
+        .comment .username {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Полная химчистка автомобилей</h1>
+</header>
+
+<nav>
+    <a href="#services">Услуги</a>
+    <a href="#contact">Контакты</a>
+    <a href="#reviews">Отзывы</a>
+</nav>
+
+<div class="banner">
+    <h2>Восстановим чистоту вашего авто</h2>
+    <p>Качественная химчистка салона и кузова автомобиля</p>
+    <a href="#contact" class="button">Записаться на химчистку</a>
+</div>
+
+<section id="services" class="section">
+    <h2>Наши услуги</h2>
+    <div class="services">
+        <h3>Химчистка салона</h3>
+        <p>Глубокая чистка обивки, потолка, ковров, сидений и пластиковых элементов салона.</p>
+
+        <h3>Чистка кузова</h3>
+        <p>Удаление грязи, пыли и пятен с кузова вашего автомобиля.</p>
+
+        <h3>Полировка и восковое покрытие</h3>
+        <p>Придаём блеск и защищаем ваш автомобиль от царапин и внешних воздействий.</p>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Контакты</h2>
+    <div class="contact">
+        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Адрес: ул. Примерная, 123, г. Москва</p>
+        <p>Электронная почта: info@chemclean.ru</p>
+    </div>
+</section>
+
+<section id="reviews" class="section">
+    <h2>Отзывы наших клиентов</h2>
+    <div class="reviews" id="comments">
+        <div class="comment">
+            <p class="username">Иван П.</p>
+            <p>Отличная работа, машина как новая! Спасибо команде химчистки!</p>
+        </div>
+        <div class="comment">
+            <p class="username">Ольга К.</p>
+            <p>Быстро и качественно, осталась очень довольна!</p>
+        </div>
+    </div>
+    <div class="comment-input">
+        <input type="text" id="username" placeholder="Введите ваш никнейм" required>
+        <textarea id="commentText" rows="3" placeholder="Напишите ваш комментарий" required></textarea>
+        <button onclick="addComment()">Оставить комментарий</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Полная химчистка автомобилей. Все права защищены.</p>
+</footer>
+
+<script>
+    function addComment() {
+        const username = document.getElementById("username").value;
+        const commentText = document.getElementById("commentText").value;
+
+        if (username && commentText) {
+            const commentSection = document.getElementById("comments");
+
+            const newComment = document.createElement("div");
+            newComment.classList.add("comment");
+
+            const name = document.createElement("p");
+            name.classList.add("username");
+            name.textContent = username;
+
+            const comment = document.createElement("p");
+            comment.textContent = commentText;
+
+            newComment.appendChild(name);
+            newComment.appendChild(comment);
+            commentSection.appendChild(newComment);
+
+            document.getElementById("username").value = "";
+            document.getElementById("commentText").value = "";
+        } else {
+            alert("Пожалуйста, заполните все поля.");
+        }
+    }
+</script>
+
+</body>
+</html>
