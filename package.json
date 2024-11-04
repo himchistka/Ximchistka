@@ -1,0 +1,11 @@
+{
+  "name": "my-car-cleaning-service",
+  "version": "1.0.0",
+  "description": "Сайт для полной химчистки автомобилей",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "http-server ."
+  },
+  "author": "Ximchistka",
+  "license": "MIT"
+}
